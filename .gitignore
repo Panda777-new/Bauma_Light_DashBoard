@@ -1,0 +1,19 @@
+# Dependency folders
+node_modules/
+
+# Build output
+.next/
+dist/
+out/
+
+# Environment files
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

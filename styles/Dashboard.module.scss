@@ -1,0 +1,369 @@
+.Dashboard {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+
+  .header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+
+    .exportBtn {
+      background: #2a2a2a;
+      border: 1px solid #3b3b3b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+
+  .mainLayout {
+    display: block;
+    height: calc(100vh - 70px);
+    margin: 0;
+    padding: 0 2rem;
+    overflow: hidden;
+  }
+
+  main {
+    flex: 3;
+    height: 100%;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  
+
+  .panel {
+    margin-bottom: 2rem;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 1rem;
+  }
+
+  .metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .metricCard {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 220px;
+    max-width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    .miniChart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      margin-top: 1rem;
+
+      div {
+        width: 6px;
+        background-color: #3b82f6;
+        animation: growBar 0.6s ease-in-out;
+      }
+    }
+  }
+
+  @keyframes growBar {
+    from {
+      height: 0;
+    }
+    to {
+      height: 20px;
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+
+    .searchInput {
+      background: #2a2a2a;
+      border: 1px solid #3b3b3b;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: white;
+      flex: 1;
+      margin-right: 1rem;
+    }
+
+    .dropdown {
+      background: #2a2a2a;
+      border: 1px solid #3b3b3b;
+      padding: 0.5rem;
+      border-radius: 6px;
+      color: white;
+    }
+  }
+
+  .chatList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .chatCard {
+    background: #2a2a2a;
+    border-left: 4px solid #10b981;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 0.75rem;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .answer {
+      color: #d1fae5;
+      line-height: 1.5;
+    }
+  }
+
+  .spinner {
+    font-size: 1rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    button {
+      background: #2a2a2a;
+      color: white;
+      border: 1px solid #3b3b3b;
+      border-radius: 4px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+    }
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1f1f1f;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .table thead {
+    background: #2a2a2a;
+  }
+
+  .table th,
+  .table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    color: #ffffff;
+  }
+
+  .table tr:hover {
+    background-color: #2e2e2e;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 0.75rem;
+    display: inline-block;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .iconButton {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .link {
+    color: #3b82f6;
+    cursor: pointer;
+  }
+
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba( 0, 0, 0, 0.7 );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modalContent {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 500px;
+    max-width: 90%;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .modalClose {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #ccc;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .modalSection {
+    margin-bottom: 1rem;
+  }
+  
+.analyticsInline {
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  .panel {
+    background: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+.dashboardRow {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.analyticsPanel {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.rightPanel {
+  flex: 2;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.metricLabel {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.logoutBtn {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+  padding: 0.4rem 1rem;
+  margin-left: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #ef4444;
+    color: white;
+  }
+}
+/* Hide scrollbars visually but allow scroll functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Optional: just to be safe */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.Dashboard main,
+.Dashboard .rightPanel,
+.Dashboard .analyticsPanel {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.Dashboard main::-webkit-scrollbar,
+.Dashboard .rightPanel::-webkit-scrollbar,
+.Dashboard .analyticsPanel::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+} 
