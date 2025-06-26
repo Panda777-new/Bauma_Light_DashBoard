@@ -5,16 +5,14 @@ const getTrend = () => Math.floor(Math.random() * 10 + 1); // simulate trend %
 
 const Card = ({ label, value, trend, color, chartColor }) => (
   <div className={styles.metricCard}>
-    {/* ✅ Bold label here */}
-    <div className={styles.metricLabel}>
-      <strong>{label}</strong>
+    <div className={styles.cardHeader}>
+      <div className={styles.metricLabel}><strong>{label}</strong></div>
+      <div className={styles.metricTrend} style={{ color }}>
+        {trend >= 0 ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />} {Math.abs(trend)}%
+      </div>
     </div>
 
     <div className={styles.metricValue}>{value}</div>
-
-    <div className={styles.metricTrend} style={{ color }}>
-      {trend >= 0 ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />} {Math.abs(trend)}%
-    </div>
 
     <div className={styles.chartBars}>
       {[...Array(10)].map((_, i) => (
@@ -32,9 +30,9 @@ const Card = ({ label, value, trend, color, chartColor }) => (
 
 export default function MetricsCards({ messages }) {
   const totalConversations = messages.length;
-  const avgDuration = '4m 38s'; // Placeholder
-  const resolutionRate = '86.5%'; // Placeholder
-  const satisfaction = '4.7/5.0'; // Placeholder
+  const avgDuration = '4m 38s'; // TODO: Compute from messages
+  const resolutionRate = '86.5%'; // TODO: Compute from messages
+  const satisfaction = '4.7/5.0'; // TODO: Compute from messages
 
   return (
     <div className={styles.metricsGrid}>
